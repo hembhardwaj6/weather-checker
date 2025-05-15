@@ -10,7 +10,7 @@ terraform {
 
   # S3 backend can be used to store terraform state
   backend "s3" {
-    bucket         = "iv-tfstate"
+    bucket         = "s3-tfstate"
     use_lockfile   = "true"
     key            = "weather-checker"
   }
