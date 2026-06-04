@@ -83,17 +83,14 @@ resource "aws_eip" "eip"{
 resource "aws_eip_association" "eip_ass"{
   instance_id = aws_instance.ec2.id
   allocation_id = aws_eip.eip.id
-
-  depends_on = [aws_instance.ec2]
 }
 
 resource "aws_instance" "ec2" {
   ami                         = data.aws_ami.ubuntu.id  #  for_each      = toset(["instance1", "instance2", "instance3"])
   instance_type               = var.instance_type
-  # associate_public_ip_address = true    # using elastic ip so no need for this
+  associate_public_ip_address = true
   key_name                    = var.key_pair_name
   security_groups             = [aws_security_group.sg.id]
-  depends_on                  = [aws_key_pair.key_pair]
   subnet_id                   = aws_subnet.private.id
   availability_zone           = var.availability_zone
 
@@ -116,7 +113,7 @@ resource "aws_instance" "ec2" {
       type        = "ssh"
       user        = "ubuntu"
       private_key = aws_key_pair.key_pair
-      host        = aws_eip.eip.public_ip
+      host        = self.public_ip
 
     }
     inline = [
@@ -131,7 +128,9 @@ resource "aws_instance" "ec2" {
     type        = "ssh"
     user        = "ubuntu"
     private_key = aws_key_pair.key_pair
-    host        = aws_eip.eip.public_ip
+    host        = self.public_ip
 
   }
+
+  depends_on                  = [aws_key_pair.key_pair]
 }
