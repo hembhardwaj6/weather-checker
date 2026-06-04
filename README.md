@@ -33,14 +33,13 @@ Open your browser and go to:
 http://localhost:5000
 ```
 
-### Run in docker
-#### This is pushed to dockerhub.
+### Run in docker...Image is added in dockerhub.
 ```
 docker run --rm -p 5000:5000 --name weather-checker hembhardwaj6/weather-checker:0.0.1
 ```
 ### Build on your own
 ```
-docker build -t weather-checker:0.0.1 .
+docker build -t weather-checker:0.0.1 --build-arg PYTHON_VERSION=alpine .
 ```
 #### Run Docker container
 ```

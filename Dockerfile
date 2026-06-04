@@ -1,4 +1,6 @@
-FROM python:3.12-alpine3.20
+ARG PYTHON_VERSION=alpine
+
+FROM python:${PYTHON_VERSION}
 
 ENV FLASK_ENV=production
 
