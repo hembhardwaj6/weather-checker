@@ -8,3 +8,4 @@ key_pair_name = "weather-checker-keys"
 public_key    = ""
 
 sg_name = "default"
+availability_zone = "us-east-2a"

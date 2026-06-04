@@ -36,7 +36,7 @@ http://localhost:5000
 ### Run in docker
 #### This is pushed to dockerhub.
 ```
-docker run --rm -p 5000:5000 --name weather-checker hemraj25/weather-checker:0.0.1
+docker run --rm -p 5000:5000 --name weather-checker hembhardwaj6/weather-checker:0.0.1
 ```
 ### Build on your own
 ```
@@ -51,12 +51,12 @@ User kustomize tool to deploy it in kubernetes dev environment
 ```
 kubectl apply -k kube/overlays/dev/
 ```
-### Deploy in kubernetes on aws with Loadbalancer
+### Deploy in EKS on aws with Loadbalancer Service
 ```
 kubectl apply -k kube/overlays/aws/
 ```
 
-### deploy with terraform
+### Create infrastructure with terraform
 ```
 terraform apply -var-file terraform.tfvars
 ```

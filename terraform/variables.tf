@@ -31,6 +31,11 @@ variable "application" {
   default = ""
 }
 
+variable "availability_zone" {
+  type    = string
+  default = ""
+}
+
 variable "instance_name" {
   description = "this is the name of instance."
   type        = string
