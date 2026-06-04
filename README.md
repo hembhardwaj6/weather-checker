@@ -11,7 +11,7 @@ The temperature is displayed along with a note indicating whether it was cached.
 
 
 ## Prerequisites
-* python 3.12
+* python 3.14
 * pip
 * requests
 * diskcache
@@ -35,15 +35,15 @@ http://localhost:5000
 
 ### Run in docker...Image is added in dockerhub.
 ```
-docker run --rm -p 5000:5000 --name weather-checker hembhardwaj6/weather-checker:0.0.1
+docker run --rm -p 5000:5000 --name weather-checker hembhardwaj6/weather-checker
 ```
 ### Build on your own
 ```
-docker build -t weather-checker:0.0.1 --build-arg PYTHON_VERSION=alpine .
+docker build -t weather-checker --build-arg PYTHON_VERSION=alpine .
 ```
 #### Run Docker container
 ```
-docker run --rm -p 5000:5000 --name weather-checker weather-checker:0.0.1
+docker run --rm -p 5000:5000 --name weather-checker weather-checker
 ```
 ### Deploy in kubernetes
 User kustomize tool to deploy it in kubernetes dev environment
