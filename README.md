@@ -39,7 +39,7 @@ docker run --rm -p 5000:5000 --name weather-checker hembhardwaj6/weather-checker
 ```
 ### Build on your own
 ```
-docker build -t weather-checker --build-arg PYTHON_VERSION=alpine .
+docker build -t weather-checker --build-arg PYTHON_VERSION=3.12-alpine3.20 .
 ```
 #### Run Docker container
 ```
